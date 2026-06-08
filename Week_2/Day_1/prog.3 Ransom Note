@@ -1,1 +1,15 @@
-
+class Solution {
+public:
+    bool canConstruct(string ransomNote, string magazine) {
+        if(ransomNote.size()>magazine.size()) return false;
+        int r[26]={0};
+        for(char ch: magazine){
+            r[ch-'a']++;
+        }
+        for(char ch: ransomNote){
+            r[ch-'a']--;
+            if(r[ch-'a']<0) return false;
+        }
+        return true;
+    }
+};
