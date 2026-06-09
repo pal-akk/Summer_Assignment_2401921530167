@@ -1,0 +1,21 @@
+class Solution {
+public:
+    vector<int> findAnagrams(string s, string p) {
+        int k= p.size();
+        vector<int> schar(26,0) , pchar(26,0);
+        vector<int> freq;
+        int n= s.size();   
+        if(k>n) return freq;
+        for(int i=0; i<k ; i++){
+            pchar[p[i]-'a']++;
+            schar[s[i]-'a']++;
+        }
+        if(pchar==schar) freq.push_back(0);
+        for(int i=k ;i<n ;i++){
+            schar[s[i]-'a']++;
+            schar[s[i-k]-'a']--;
+            if(schar==pchar) freq.push_back(i-k+1);
+        }
+        return freq;  
+    }
+};
