@@ -1,0 +1,25 @@
+class Solution {
+public:
+    int compress(vector<char>& chars) {
+        int n=chars.size();
+        string s;
+        int move=0;
+        int ind=0;
+        while(move<n){
+            char curr=chars[move];
+            int count=0;
+            while(move<n && chars[move]==curr){
+                count++;
+                move++;
+            }
+            chars[ind++]=curr;
+            if(count>1){
+                string cnt=to_string(count);
+                for(char ch: cnt){
+                    chars[ind++]=ch;
+                }
+            }
+        }
+        return ind;  
+    }
+};
