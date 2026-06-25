@@ -1,9 +1,0 @@
-package train;
-
-public class Luggage extends Compartment {
-	@Override
-	public String notice() {
-		return "Welcome, this is Luggage Compartment";
-	}
-
-}
